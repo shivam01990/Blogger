@@ -83,3 +83,5 @@ D:\Development Area\Blogger\Blogger\bin\zh-Hant\System.Spatial.resources.dll
 D:\Development Area\Blogger\Blogger\obj\Debug\Blogger.csprojResolveAssemblyReference.cache
 D:\Development Area\Blogger\Blogger\obj\Debug\Blogger.dll
 D:\Development Area\Blogger\Blogger\obj\Debug\Blogger.pdb
+D:\Development Area\Blogger\Blogger\bin\DataLayer.dll
+D:\Development Area\Blogger\Blogger\bin\DataLayer.pdb

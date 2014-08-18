@@ -3,12 +3,22 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>_LayoutMaster</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Blog</title>
     <link href="~/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/bootstrap-3.2.0-dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/bootstrap-3.2.0-dist/css/blog-home.css" rel="stylesheet" />
     <script src="~/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <!-- Navigation -->
+    @Html.Partial("_TopMenu")
+    <!-- /.container -->
+    
     <div>
         @RenderBody()
 

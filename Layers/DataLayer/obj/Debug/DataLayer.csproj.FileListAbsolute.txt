@@ -1,0 +1,8 @@
+D:\Development Area\Blogger\Layers\DataLayer\bin\Debug\DataLayer.dll.config
+D:\Development Area\Blogger\Layers\DataLayer\bin\Debug\DataLayer.dll
+D:\Development Area\Blogger\Layers\DataLayer\bin\Debug\DataLayer.pdb
+D:\Development Area\Blogger\Layers\DataLayer\bin\Debug\EntityFramework.dll
+D:\Development Area\Blogger\Layers\DataLayer\bin\Debug\EntityFramework.xml
+D:\Development Area\Blogger\Layers\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\Development Area\Blogger\Layers\DataLayer\obj\Debug\DataLayer.dll
+D:\Development Area\Blogger\Layers\DataLayer\obj\Debug\DataLayer.pdb

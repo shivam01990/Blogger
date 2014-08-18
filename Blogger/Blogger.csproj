@@ -181,6 +181,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs">
       <SubType>Code</SubType>
@@ -194,6 +196,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bootstrap-3.2.0-dist\css\blog-home.css" />
     <Content Include="bootstrap-3.2.0-dist\css\bootstrap-theme.css" />
     <Content Include="bootstrap-3.2.0-dist\css\bootstrap-theme.min.css" />
     <Content Include="bootstrap-3.2.0-dist\css\bootstrap.css" />
@@ -262,6 +265,7 @@
     <Content Include="bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Admin\Views\Web.config" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -318,12 +322,21 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_LayoutMaster.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Shared\_TopMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Layers\DataLayer\DataLayer.csproj">
+      <Project>{70ae1872-0df1-4811-8a62-e2ba60eb8bd4}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
