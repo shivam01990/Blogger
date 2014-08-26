@@ -6,3 +6,11 @@ D:\Development Area\Blogger\Layers\DataLayer\bin\Debug\EntityFramework.xml
 D:\Development Area\Blogger\Layers\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
 D:\Development Area\Blogger\Layers\DataLayer\obj\Debug\DataLayer.dll
 D:\Development Area\Blogger\Layers\DataLayer\obj\Debug\DataLayer.pdb
+G:\Softwares\SVN\Blogger\Layers\DataLayer\bin\Debug\DataLayer.dll.config
+G:\Softwares\SVN\Blogger\Layers\DataLayer\bin\Debug\DataLayer.dll
+G:\Softwares\SVN\Blogger\Layers\DataLayer\bin\Debug\DataLayer.pdb
+G:\Softwares\SVN\Blogger\Layers\DataLayer\bin\Debug\EntityFramework.dll
+G:\Softwares\SVN\Blogger\Layers\DataLayer\bin\Debug\EntityFramework.xml
+G:\Softwares\SVN\Blogger\Layers\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+G:\Softwares\SVN\Blogger\Layers\DataLayer\obj\Debug\DataLayer.dll
+G:\Softwares\SVN\Blogger\Layers\DataLayer\obj\Debug\DataLayer.pdb

@@ -20,7 +20,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="CategoryName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CreatedOn" Type="datetime" />
     <Property Name="UpdatedOn" Type="datetime" />
