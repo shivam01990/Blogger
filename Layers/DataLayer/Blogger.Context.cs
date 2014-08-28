@@ -30,5 +30,7 @@ namespace DataLayer
         public DbSet<webpages_Membership> webpages_Membership { get; set; }
         public DbSet<webpages_OAuthMembership> webpages_OAuthMembership { get; set; }
         public DbSet<webpages_Roles> webpages_Roles { get; set; }
+        public DbSet<tbl_Post> tbl_Post { get; set; }
+        public DbSet<tbl_Constraints> tbl_Constraints { get; set; }
     }
 }

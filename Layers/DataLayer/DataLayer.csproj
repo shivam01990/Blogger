@@ -62,8 +62,15 @@
       <DependentUpon>Blogger.edmx</DependentUpon>
     </Compile>
     <Compile Include="CategoryProvider.cs" />
+    <Compile Include="PostProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tbl_Category.cs">
+      <DependentUpon>Blogger.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Constraints.cs">
+      <DependentUpon>Blogger.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Post.cs">
       <DependentUpon>Blogger.tt</DependentUpon>
     </Compile>
     <Compile Include="UserProfile.cs">

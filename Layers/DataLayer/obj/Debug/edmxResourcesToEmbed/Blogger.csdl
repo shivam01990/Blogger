@@ -10,6 +10,8 @@
       <End Role="webpages_Roles" EntitySet="webpages_Roles" />
       <End Role="UserProfile" EntitySet="UserProfiles" />
     </AssociationSet>
+    <EntitySet Name="tbl_Post" EntityType="BloggerModel.tbl_Post" />
+    <EntitySet Name="tbl_Constraints" EntityType="BloggerModel.tbl_Constraints" />
   </EntityContainer>
   <EntityType Name="tbl_Category">
     <Key>
@@ -65,4 +67,25 @@
     <End Role="webpages_Roles" Type="BloggerModel.webpages_Roles" Multiplicity="*" />
     <End Role="UserProfile" Type="BloggerModel.UserProfile" Multiplicity="*" />
   </Association>
+  <EntityType Name="tbl_Post">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ContentMsg" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Imageurl" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreatedOn" Precision="3" />
+    <Property Type="DateTime" Name="UpdatedOn" Precision="0" />
+    <Property Type="Int32" Name="CreatedBy" />
+    <Property Type="Int32" Name="UpdatedBy" />
+  </EntityType>
+  <EntityType Name="tbl_Constraints">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DataValues" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="RelatedId" />
+  </EntityType>
 </Schema>

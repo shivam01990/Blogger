@@ -1,0 +1,21 @@
+﻿@model Blogger.Models.PostModel
+
+
+<!--  Blog Post -->
+<h2>
+    <a href="#">@Html.DisplayFor(model => model.Title)</a>
+</h2>
+<p class="lead">
+    by <a href="index.php">Start Bootstrap</a>
+</p>
+<p><span class="glyphicon glyphicon-time"></span>Posted on August  @Html.DisplayFor(model => model.CreatedOn)</p>
+<hr>
+<img class="img-responsive" src="http://placehold.it/900x300" alt="">
+<hr>
+<p>
+    @Html.DisplayFor(model => model.ContentMsg)
+
+</p>
+<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+<hr>

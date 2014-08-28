@@ -2,6 +2,8 @@
 <Schema Namespace="BloggerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="BloggerModelStoreContainer">
     <EntitySet Name="tbl_Category" EntityType="BloggerModel.Store.tbl_Category" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Constraints" EntityType="BloggerModel.Store.tbl_Constraints" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Post" EntityType="BloggerModel.Store.tbl_Post" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserProfile" EntityType="BloggerModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="webpages_Membership" EntityType="BloggerModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="webpages_OAuthMembership" EntityType="BloggerModel.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
@@ -24,6 +26,27 @@
     <Property Name="CategoryName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CreatedOn" Type="datetime" />
     <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_Constraints">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DataValues" Type="nvarchar(max)" />
+    <Property Name="RelatedId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Post">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContentMsg" Type="nvarchar(max)" />
+    <Property Name="Imageurl" Type="nvarchar(max)" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedOn" Type="date" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
   </EntityType>
   <EntityType Name="UserProfile">
     <Key>
