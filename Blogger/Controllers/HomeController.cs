@@ -12,6 +12,7 @@ namespace Blogger.Controllers
 {
     public class HomeController : Controller
     {
+        
         public ActionResult Index(int? page)
         {
             List<tbl_Post> lstPost = new List<tbl_Post>();
@@ -34,6 +35,13 @@ namespace Blogger.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult GetAnnouncements()
+        {
+            string Announcement = ConstraintsProvider.GetAnnouncement();
+            return Json(Announcement);
         }
     }
 }

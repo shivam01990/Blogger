@@ -11,9 +11,9 @@ namespace Blogger.Helpers
 
         public static MvcHtmlString CustomSubString(this HtmlHelper htmlHelper, string value)
         {
-            if(value.Length>50)
+            if(value.Length>200)
             {
-              value = value.Substring(0,50);
+              value = value.Substring(0,200);
             }
 
             return MvcHtmlString.Create(value);

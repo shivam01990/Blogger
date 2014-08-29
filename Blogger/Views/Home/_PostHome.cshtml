@@ -1,4 +1,6 @@
 ﻿@model Blogger.Models.PostModel
+@using Blogger.Helpers;
+
 
 
 <!--  Blog Post -->
@@ -9,12 +11,15 @@
     by <a href="index.php">Start Bootstrap</a>
 </p>
 <p><span class="glyphicon glyphicon-time"></span>Posted on August  @Html.DisplayFor(model => model.CreatedOn)</p>
-<hr>
-<img class="img-responsive" src="http://placehold.it/900x300" alt="">
-<hr>
+@if ((Model.Imageurl != null) && (Model.Imageurl != ""))
+{
+    <hr>
+    <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+    <hr>
+}
 <p>
-    @Html.DisplayFor(model => model.ContentMsg)
-
+    @* @Html.DisplayFor(model => model.ContentMsg)*@
+    @CustomHelper.CustomSubString(Html, Model.ContentMsg)
 </p>
 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 

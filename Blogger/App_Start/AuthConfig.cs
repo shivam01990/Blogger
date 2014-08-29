@@ -26,7 +26,7 @@ namespace Blogger
             //    appId: "",
             //    appSecret: "");
 
-            //OAuthWebSecurity.RegisterGoogleClient();
+           //OAuthWebSecurity.RegisterGoogleClient();
         }
     }
 }
