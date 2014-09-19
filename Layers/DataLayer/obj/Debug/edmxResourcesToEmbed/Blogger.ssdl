@@ -9,6 +9,16 @@
     <Property Name="CreatedOn" Type="datetime" />
     <Property Name="UpdatedOn" Type="datetime" />
   </EntityType>
+  <EntityType Name="tbl_Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostId" Type="int" Nullable="false" />
+    <Property Name="CommentText" Type="nvarchar(max)" />
+    <Property Name="CommentedBy" Type="int" />
+    <Property Name="CommentedOn" Type="datetime" />
+  </EntityType>
   <EntityType Name="tbl_Constraints">
     <Key>
       <PropertyRef Name="Id" />
@@ -103,6 +113,7 @@
   </Association>
   <EntityContainer Name="BloggerModelStoreContainer">
     <EntitySet Name="tbl_Category" EntityType="Self.tbl_Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Comment" EntityType="Self.tbl_Comment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_Constraints" EntityType="Self.tbl_Constraints" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_Post" EntityType="Self.tbl_Post" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserProfiles" EntityType="Self.UserProfiles" Schema="dbo" store:Type="Tables" />

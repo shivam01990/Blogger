@@ -14,6 +14,16 @@
           <Property Name="CreatedOn" Type="datetime" />
           <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
+        <EntityType Name="tbl_Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="CommentText" Type="nvarchar(max)" />
+          <Property Name="CommentedBy" Type="int" />
+          <Property Name="CommentedOn" Type="datetime" />
+        </EntityType>
         <EntityType Name="tbl_Constraints">
           <Key>
             <PropertyRef Name="Id" />
@@ -108,6 +118,7 @@
         </Association>
         <EntityContainer Name="BloggerModelStoreContainer">
           <EntitySet Name="tbl_Category" EntityType="Self.tbl_Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Comment" EntityType="Self.tbl_Comment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Constraints" EntityType="Self.tbl_Constraints" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Post" EntityType="Self.tbl_Post" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserProfiles" EntityType="Self.UserProfiles" Schema="dbo" store:Type="Tables" />
@@ -140,6 +151,7 @@
             <End Role="UserProfile" EntitySet="UserProfiles" />
             <End Role="webpages_Roles" EntitySet="webpages_Roles" />
           </AssociationSet>
+          <EntitySet Name="tbl_Comment" EntityType="BloggerModel.tbl_Comment" />
         </EntityContainer>
         <EntityType Name="tbl_Category">
           <Key>
@@ -216,6 +228,16 @@
           <End Type="BloggerModel.UserProfile" Role="UserProfile" Multiplicity="*" />
           <End Type="BloggerModel.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
         </Association>
+        <EntityType Name="tbl_Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="CommentText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CommentedBy" Type="Int32" />
+          <Property Name="CommentedOn" Type="DateTime" Precision="3" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -305,6 +327,17 @@
               <ScalarProperty Name="UserId" ColumnName="UserProfiles_UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="tbl_Comment">
+            <EntityTypeMapping TypeName="BloggerModel.tbl_Comment">
+              <MappingFragment StoreEntitySet="tbl_Comment">
+                <ScalarProperty Name="CommentedOn" ColumnName="CommentedOn" />
+                <ScalarProperty Name="CommentedBy" ColumnName="CommentedBy" />
+                <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -84,5 +84,16 @@
         <ScalarProperty Name="UserId" ColumnName="UserProfiles_UserId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="tbl_Comment">
+      <EntityTypeMapping TypeName="BloggerModel.tbl_Comment">
+        <MappingFragment StoreEntitySet="tbl_Comment">
+          <ScalarProperty Name="CommentedOn" ColumnName="CommentedOn" />
+          <ScalarProperty Name="CommentedBy" ColumnName="CommentedBy" />
+          <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

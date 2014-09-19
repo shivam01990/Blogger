@@ -12,6 +12,7 @@
       <End Role="UserProfile" EntitySet="UserProfiles" />
       <End Role="webpages_Roles" EntitySet="webpages_Roles" />
     </AssociationSet>
+    <EntitySet Name="tbl_Comment" EntityType="BloggerModel.tbl_Comment" />
   </EntityContainer>
   <EntityType Name="tbl_Category">
     <Key>
@@ -88,4 +89,14 @@
     <End Type="BloggerModel.UserProfile" Role="UserProfile" Multiplicity="*" />
     <End Type="BloggerModel.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
   </Association>
+  <EntityType Name="tbl_Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PostId" Type="Int32" Nullable="false" />
+    <Property Name="CommentText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CommentedBy" Type="Int32" />
+    <Property Name="CommentedOn" Type="DateTime" Precision="3" />
+  </EntityType>
 </Schema>

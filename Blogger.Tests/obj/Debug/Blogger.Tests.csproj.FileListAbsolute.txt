@@ -82,3 +82,4 @@ G:\Softwares\SVN\Blogger\Blogger.Tests\obj\Debug\Blogger.Tests.dll
 G:\Softwares\SVN\Blogger\Blogger.Tests\obj\Debug\Blogger.Tests.pdb
 G:\Softwares\SVN\Blogger\Blogger.Tests\bin\Debug\DataLayer.dll
 G:\Softwares\SVN\Blogger\Blogger.Tests\bin\Debug\DataLayer.pdb
+D:\Day User\Shivam\Test Projects\Blogger\Blogger\Blogger.Tests\obj\Debug\Blogger.Tests.csprojResolveAssemblyReference.cache

@@ -21,17 +21,25 @@ namespace Blogger.Controllers
                 id = (int)Id;
 
                 tbl_Post p = PostProvider.GetPost(id);
-                PostModel Model = new PostModel { Id = p.Id, ContentMsg = p.ContentMsg, Title = p.Title, UpdatedBy = p.UpdatedBy };
+                List<tbl_Comment> c = CommentProvider.GetAllCommentByPostId(id);
+                PostModel _PostModel = new PostModel { Id = p.Id, ContentMsg = p.ContentMsg, Title = p.Title, UpdatedBy = p.UpdatedBy };
+                List<CommentModel> _commentModel = (from temp in c select new CommentModel { Id = temp.Id, CommentText = temp.CommentText, PostId = temp.PostId, CommentedBy = temp.CommentedBy }).ToList();
+                PostViewModel Model = new PostViewModel();
+                Model.Comments = _commentModel;
+                Model.Post = _PostModel;
                 return View(Model);
             }
             else
                 return View();
         }
-
+     
         [HttpPost]
-        public JsonResult SubmitComment(string commenttext)
+        public PartialViewResult SubmitComment(string commenttext)
         {
-            return Json(commenttext, JsonRequestBehavior.AllowGet);
+            List<tbl_Comment> c = CommentProvider.GetAllCommentByPostId(1);
+            List<CommentModel> _commentModel = (from temp in c select new CommentModel { Id = temp.Id, CommentText = temp.CommentText, PostId = temp.PostId, CommentedBy = temp.CommentedBy }).ToList();
+            _commentModel.Add(new CommentModel { CommentText = commenttext });
+            return PartialView("_Comment", _commentModel);
         }
         //
         // GET: /Posts/Details/5

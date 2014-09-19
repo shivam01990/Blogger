@@ -13,6 +13,7 @@
         <EntityTypeShape EntityType="BloggerModel.webpages_OAuthMembership" Width="1.5" PointX="0.75" PointY="6.75" />
         <EntityTypeShape EntityType="BloggerModel.webpages_Roles" Width="1.5" PointX="3" PointY="0.875" />
         <AssociationConnector Association="BloggerModel.webpages_UsersInRoles" />
+        <EntityTypeShape EntityType="BloggerModel.tbl_Comment" Width="1.5" PointX="3.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
