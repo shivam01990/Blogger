@@ -1,28 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="BloggerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="BloggerModelStoreContainer">
-    <EntitySet Name="tbl_Category" EntityType="BloggerModel.Store.tbl_Category" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="tbl_Constraints" EntityType="BloggerModel.Store.tbl_Constraints" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="tbl_Post" EntityType="BloggerModel.Store.tbl_Post" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserProfile" EntityType="BloggerModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="webpages_Membership" EntityType="BloggerModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="webpages_OAuthMembership" EntityType="BloggerModel.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="webpages_Roles" EntityType="BloggerModel.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="webpages_UsersInRoles" EntityType="BloggerModel.Store.webpages_UsersInRoles" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="fk_RoleId" Association="BloggerModel.Store.fk_RoleId">
-      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
-      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
-    </AssociationSet>
-    <AssociationSet Name="fk_UserId" Association="BloggerModel.Store.fk_UserId">
-      <End Role="UserProfile" EntitySet="UserProfile" />
-      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
-    </AssociationSet>
-  </EntityContainer>
+<Schema Namespace="BloggerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="tbl_Category">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="CategoryName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CreatedOn" Type="datetime" />
     <Property Name="UpdatedOn" Type="datetime" />
@@ -31,7 +13,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DataValues" Type="nvarchar(max)" />
     <Property Name="RelatedId" Type="int" />
   </EntityType>
@@ -39,21 +21,21 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ContentMsg" Type="nvarchar(max)" />
     <Property Name="Imageurl" Type="nvarchar(max)" />
     <Property Name="CreatedOn" Type="datetime" />
-    <Property Name="UpdatedOn" Type="date" />
+    <Property Name="UpdatedOn" Type="datetime" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="UpdatedBy" Type="int" />
   </EntityType>
-  <EntityType Name="UserProfile">
+  <EntityType Name="UserProfiles">
     <Key>
       <PropertyRef Name="UserId" />
     </Key>
-    <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="56" />
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="56" Nullable="false" />
   </EntityType>
   <EntityType Name="webpages_Membership">
     <Key>
@@ -65,9 +47,9 @@
     <Property Name="IsConfirmed" Type="bit" />
     <Property Name="LastPasswordFailureDate" Type="datetime" />
     <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
-    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="PasswordChangedDate" Type="datetime" />
-    <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
     <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
   </EntityType>
@@ -76,47 +58,65 @@
       <PropertyRef Name="Provider" />
       <PropertyRef Name="ProviderUserId" />
     </Key>
-    <Property Name="Provider" Type="nvarchar" Nullable="false" MaxLength="30" />
-    <Property Name="ProviderUserId" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Provider" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ProviderUserId" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="webpages_Roles">
     <Key>
       <PropertyRef Name="RoleId" />
     </Key>
-    <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
   </EntityType>
   <EntityType Name="webpages_UsersInRoles">
     <Key>
-      <PropertyRef Name="UserId" />
-      <PropertyRef Name="RoleId" />
+      <PropertyRef Name="webpages_Roles_RoleId" />
+      <PropertyRef Name="UserProfiles_UserId" />
     </Key>
-    <Property Name="UserId" Type="int" Nullable="false" />
-    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="webpages_Roles_RoleId" Type="int" Nullable="false" />
+    <Property Name="UserProfiles_UserId" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="fk_RoleId">
-    <End Role="webpages_Roles" Type="BloggerModel.Store.webpages_Roles" Multiplicity="1" />
-    <End Role="webpages_UsersInRoles" Type="BloggerModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+  <Association Name="FK_webpages_UsersInRoles_UserProfile">
+    <End Role="UserProfiles" Type="Self.UserProfiles" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfiles">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="UserProfiles_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_webpages_UsersInRoles_webpages_Roles">
+    <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="webpages_Roles">
         <PropertyRef Name="RoleId" />
       </Principal>
       <Dependent Role="webpages_UsersInRoles">
-        <PropertyRef Name="RoleId" />
+        <PropertyRef Name="webpages_Roles_RoleId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_UserId">
-    <End Role="UserProfile" Type="BloggerModel.Store.UserProfile" Multiplicity="1" />
-    <End Role="webpages_UsersInRoles" Type="BloggerModel.Store.webpages_UsersInRoles" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserProfile">
-        <PropertyRef Name="UserId" />
-      </Principal>
-      <Dependent Role="webpages_UsersInRoles">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
+  <EntityContainer Name="BloggerModelStoreContainer">
+    <EntitySet Name="tbl_Category" EntityType="Self.tbl_Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Constraints" EntityType="Self.tbl_Constraints" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Post" EntityType="Self.tbl_Post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfiles" EntityType="Self.UserProfiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_webpages_UsersInRoles_UserProfile" Association="Self.FK_webpages_UsersInRoles_UserProfile">
+      <End Role="UserProfiles" EntitySet="UserProfiles" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_webpages_UsersInRoles_webpages_Roles" Association="Self.FK_webpages_UsersInRoles_webpages_Roles">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>

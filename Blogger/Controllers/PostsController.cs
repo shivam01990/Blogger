@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DataLayer;
+using Blogger.Models;
 
 namespace Blogger.Controllers
 {
@@ -11,11 +13,26 @@ namespace Blogger.Controllers
         //
         // GET: /Posts/
 
-        public ActionResult Index()
+        public ActionResult Index(int? Id)
         {
-            return View();
+            int id = 0;
+            if (Id != 0 && Id != null)
+            {
+                id = (int)Id;
+
+                tbl_Post p = PostProvider.GetPost(id);
+                PostModel Model = new PostModel { Id = p.Id, ContentMsg = p.ContentMsg, Title = p.Title, UpdatedBy = p.UpdatedBy };
+                return View(Model);
+            }
+            else
+                return View();
         }
 
+        [HttpPost]
+        public JsonResult SubmitComment(string commenttext)
+        {
+            return Json(commenttext, JsonRequestBehavior.AllowGet);
+        }
         //
         // GET: /Posts/Details/5
 

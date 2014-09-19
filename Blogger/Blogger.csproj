@@ -339,6 +339,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_PostHome.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
+    <Content Include="Views\Posts\Details.cshtml" />
+    <Content Include="Views\Posts\_PostHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

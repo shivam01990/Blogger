@@ -14,3 +14,10 @@ G:\Softwares\SVN\Blogger\Layers\DataLayer\bin\Debug\EntityFramework.xml
 G:\Softwares\SVN\Blogger\Layers\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
 G:\Softwares\SVN\Blogger\Layers\DataLayer\obj\Debug\DataLayer.dll
 G:\Softwares\SVN\Blogger\Layers\DataLayer\obj\Debug\DataLayer.pdb
+D:\Day User\Shivam\Test Projects\Blogger\Blogger\Layers\DataLayer\bin\Debug\DataLayer.dll.config
+D:\Day User\Shivam\Test Projects\Blogger\Blogger\Layers\DataLayer\bin\Debug\DataLayer.dll
+D:\Day User\Shivam\Test Projects\Blogger\Blogger\Layers\DataLayer\bin\Debug\DataLayer.pdb
+D:\Day User\Shivam\Test Projects\Blogger\Blogger\Layers\DataLayer\bin\Debug\EntityFramework.dll
+D:\Day User\Shivam\Test Projects\Blogger\Blogger\Layers\DataLayer\bin\Debug\EntityFramework.xml
+D:\Day User\Shivam\Test Projects\Blogger\Blogger\Layers\DataLayer\obj\Debug\DataLayer.dll
+D:\Day User\Shivam\Test Projects\Blogger\Blogger\Layers\DataLayer\obj\Debug\DataLayer.pdb

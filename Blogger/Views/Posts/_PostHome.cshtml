@@ -1,0 +1,25 @@
+﻿@model Blogger.Models.PostModel
+@using Blogger.Helpers;
+
+
+
+<!--  Blog Post -->
+<h1>
+    <a href="#">@Html.DisplayFor(model => model.Title)</a>
+</h1>
+<p class="lead">
+    by <a href="index.php">Start Bootstrap</a>
+</p>
+<p><span class="glyphicon glyphicon-time"></span>Posted on August  @Html.DisplayFor(model => model.CreatedOn)</p>
+@if ((Model.Imageurl != null) && (Model.Imageurl != ""))
+{
+    <hr>
+    <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+    <hr>
+}
+<p class="lead">
+    @Html.DisplayFor(model => model.ContentMsg)
+    @*@CustomHelper.CustomSubString(Html, Model.ContentMsg)*@
+</p>
+
+<hr>

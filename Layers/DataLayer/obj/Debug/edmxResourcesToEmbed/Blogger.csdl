@@ -2,32 +2,53 @@
 <Schema Namespace="BloggerModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="BloggerEntities" p1:LazyLoadingEnabled="true">
     <EntitySet Name="tbl_Category" EntityType="BloggerModel.tbl_Category" />
+    <EntitySet Name="tbl_Constraints" EntityType="BloggerModel.tbl_Constraints" />
+    <EntitySet Name="tbl_Post" EntityType="BloggerModel.tbl_Post" />
     <EntitySet Name="UserProfiles" EntityType="BloggerModel.UserProfile" />
     <EntitySet Name="webpages_Membership" EntityType="BloggerModel.webpages_Membership" />
     <EntitySet Name="webpages_OAuthMembership" EntityType="BloggerModel.webpages_OAuthMembership" />
     <EntitySet Name="webpages_Roles" EntityType="BloggerModel.webpages_Roles" />
     <AssociationSet Name="webpages_UsersInRoles" Association="BloggerModel.webpages_UsersInRoles">
-      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
       <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
     </AssociationSet>
-    <EntitySet Name="tbl_Post" EntityType="BloggerModel.tbl_Post" />
-    <EntitySet Name="tbl_Constraints" EntityType="BloggerModel.tbl_Constraints" />
   </EntityContainer>
   <EntityType Name="tbl_Category">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="CreatedOn" Type="DateTime" Precision="3" />
     <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_Constraints">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DataValues" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RelatedId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_Post">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ContentMsg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Imageurl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedBy" Type="Int32" />
   </EntityType>
   <EntityType Name="UserProfile">
     <Key>
       <PropertyRef Name="UserId" />
     </Key>
-    <Property Name="UserId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="UserName" Type="String" Nullable="false" MaxLength="56" Unicode="true" FixedLength="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="56" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="webpages_Roles" Relationship="BloggerModel.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
   </EntityType>
   <EntityType Name="webpages_Membership">
@@ -36,14 +57,14 @@
     </Key>
     <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="CreateDate" Type="DateTime" Precision="3" />
-    <Property Name="ConfirmationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="ConfirmationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="IsConfirmed" Type="Boolean" />
     <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
     <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
-    <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
-    <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="webpages_OAuthMembership">
@@ -51,41 +72,20 @@
       <PropertyRef Name="Provider" />
       <PropertyRef Name="ProviderUserId" />
     </Key>
-    <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
-    <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="UserId" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="webpages_Roles">
     <Key>
       <PropertyRef Name="RoleId" />
     </Key>
-    <Property Name="RoleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="UserProfiles" Relationship="BloggerModel.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="UserProfile" />
   </EntityType>
   <Association Name="webpages_UsersInRoles">
-    <End Role="webpages_Roles" Type="BloggerModel.webpages_Roles" Multiplicity="*" />
-    <End Role="UserProfile" Type="BloggerModel.UserProfile" Multiplicity="*" />
+    <End Type="BloggerModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+    <End Type="BloggerModel.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
   </Association>
-  <EntityType Name="tbl_Post">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="ContentMsg" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Imageurl" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Type="DateTime" Name="CreatedOn" Precision="3" />
-    <Property Type="DateTime" Name="UpdatedOn" Precision="0" />
-    <Property Type="Int32" Name="CreatedBy" />
-    <Property Type="Int32" Name="UpdatedBy" />
-  </EntityType>
-  <EntityType Name="tbl_Constraints">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="DataValues" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Type="Int32" Name="RelatedId" />
-  </EntityType>
 </Schema>

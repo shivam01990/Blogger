@@ -17,5 +17,15 @@ namespace DataLayer
             }
             return _Postlst;
         }
+
+        public static tbl_Post GetPost(int Id)
+        {
+           tbl_Post _Post = new tbl_Post();
+            using (BloggerEntities db = new BloggerEntities())
+            {
+                _Post = db.tbl_Post.Where(p=>p.Id==Id).FirstOrDefault();
+            }
+            return _Post;
+        }
     }
 }
